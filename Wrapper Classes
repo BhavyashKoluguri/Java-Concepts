@@ -1,0 +1,19 @@
+class Wrapper {
+  public static void main(String[] args) {
+    int a = 10; // primitive data type
+    int b = 15;
+    Integer c = 15;
+    Integer d = 16;// wraped class
+    swap(a, b);
+    System.out.println("a = " + a + " b = " + b); // it will not swap because it is a primitive data type. it will pass the value of a and b to the function.
+    swap(c, d);
+    System.out.println("c = " + c + " d = " + d);// it will also not swap because wrapper classes has final
+  }
+
+  public static void swap(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+
+  }
+}
