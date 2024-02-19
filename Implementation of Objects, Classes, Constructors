@@ -1,0 +1,70 @@
+
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Student yash = new Student(1, 92, "Yash"); // dynamically allocates memory at run time and return the reference of the object. So now yashis pointed to rno 1, marks 85 and name is Yash.
+    Student random = new Student();
+    yash.greeting();
+    yash.changeName("Bhavyash");
+
+    Student sahil = new Student(90, "Sahil"); // same as above
+    if (yash.marks > sahil.marks) {
+      System.out.println(yash.name);
+      System.out.println("Yash is the topper");
+    } else {
+      System.out.println("Sahil is the topper");
+    }
+    Homes h1 = new Homes(); // by default consructor is called
+    // System.out.println(h1.rooms); // prints 0 because by default all the integers are initialized to 0.
+    System.out.println(h1.homeName);// prints null because by default all the Strings are initialized to null. for float default is 0.0
+    // Homes h2 = new Homes();
+    // h2.homeName = "Sahil's Home";
+    // h2.rooms = 4;
+    // System.out.println("The house name is "+h2.homeName+" and it has "+h2.rooms+"
+    // rooms");
+  }
+
+  public static class Homes {
+    int rooms;
+    int bathrooms;
+    String homeName;
+
+    Homes() {
+      System.out.println("Default constructor called");
+      this.rooms = 3; // now this is nothing but h1
+    }
+  }
+
+  public static class Student {
+    int rno;
+    int marks;
+    String name;
+
+    void greeting() {
+      System.out.println("Hello my name is " + this.name);
+    }
+
+    void changeName(String newName) {
+      this.name = newName;
+      System.out.println("Name changed to " + this.name);
+    }
+
+    public Student(int rno, int marks, String name) {
+      this.rno = rno; // here this nothing but yash
+      this.marks = marks;
+      this.name = name;
+      System.out.println("This is called for 3 parameters");
+    }
+
+    public Student(int marks, String name) {
+      this.marks = marks; // here this nothing but sahil beacuse we are calling the constructor with 2
+                          // parameters
+      this.name = name;
+      System.out.println("This is called for 2 parameters");
+    }
+    public Student(){
+      System.out.println("This is called for no parameters");
+    }
+  }
+}
